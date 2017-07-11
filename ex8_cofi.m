@@ -22,8 +22,9 @@ load('ex8_movies.mat');
 %R 用户j是否给电影i打分的矩阵
 %合并Y和自己的评分矩阵
 Y = [my_ratings Y];
-%合并是否打分矩阵
-R = [(my_ratings ~= 0) R];
+%生成是否打分矩阵
+R = zeros(size(Y));
+R(Y ~= 0) = 1;
 
 [Ynorm, Ymean] = normalizeRatings(Y, R);
 
@@ -49,8 +50,6 @@ Theta = reshape(theta(num_movies*num_features+1:end), ...
                 num_users, num_features);
 
 fprintf('Recommender system learning completed.\n');
-
-fprintf('\nProgram paused. Press enter to continue.\n');
 
 
 
