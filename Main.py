@@ -4,8 +4,8 @@ import numpy as n
 import scipy.io as io
 
 def loadMovieList():
-    fid = open("movie_ids.txt")
-    n1 = 1682
+    fid = open("game_id.txt")
+    n1 = 100
     movieList = [[] for i in range(n1)]
     for i in range(0,n1):
         line = fid.readline()
@@ -17,8 +17,8 @@ def loadMovieList():
     return movieList
 
 movieList = loadMovieList()
-my_ratings = n.zeros((1682,1))
-ran = range(1682)
+my_ratings = n.zeros((100,1))
+ran = range(100)
 li = random.sample(ran,10)
 for i in range(0,10):
     print "please input score for %s (1-5)"%movieList[li[i]]
