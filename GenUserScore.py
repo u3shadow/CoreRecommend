@@ -1,5 +1,5 @@
-from random import random, randint
-
+from random import randint
+import scipy.io as sci
 import numpy as n
 
 
@@ -19,7 +19,7 @@ def initScore(row,score):
         score = randint(0, 5)
         for j in range(0, 10000):
             if Y[row][j] + score <= 5:
-                Y[row][j] = score + Y[0][j]
+                Y[row][j] = score + Y[row][j]
                 left = left - score
                 break;
     print left
@@ -27,11 +27,13 @@ def initScore(row,score):
 game_sco = open("game_sco.txt")
 score = game_sco.readline()
 i = 0
-while score != None:
+while score != '':
     print i
     initScore(i,int(score))
     i = i + 1
     score = game_sco.readline()
+dic = {"Y":Y}
+sci.savemat("ex8_movies.mat",dic)
 
 
 
