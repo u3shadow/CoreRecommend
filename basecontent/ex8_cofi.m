@@ -32,8 +32,8 @@ initial_parameters = Theta(:);
 
 options = optimset('GradObj', 'on', 'MaxIter', 100);
 
-lambda = 10;
-theta = fmincg (@(t)(costFunc(Y,my_ratings, R,...
+lambda = 5;
+theta = fminunc (@(t)(costFunc(Y,my_ratings, R,...
                                 t, lambda)), ...
                 initial_parameters, options);
  my_predictions = Y*theta;
