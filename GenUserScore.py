@@ -4,7 +4,7 @@ import numpy as n
 
 
 
-Y =  n.zeros((100,10000))
+Y =  n.zeros((14329,10000))
 def initScore(row,score):
     total = score / 20 * 10000
     left = total

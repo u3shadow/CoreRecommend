@@ -9,7 +9,7 @@ function movieList = loadMovieList()
 fid = fopen('game_id.txt');
 
 % Store all movies in cell array movie{}
-n = 100;  % Total number of movies
+n = 14329;  % Total number of movies
 
 movieList = cell(n, 1);
 for i = 1:n
