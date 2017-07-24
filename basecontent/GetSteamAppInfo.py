@@ -16,7 +16,7 @@ def better_print(json_str):
 		i = i + 1
  		game_id.write("%d %s\n"%(i,list[k]['name']))
 		score = getScore(list[k]['tags'],list[k]['owners'])
-		game_tag_s.write("%d %s\n"%(i,score))
+		game_tag_s.write("%s\n"%score)
 	game_id.close()
 	game_tag_s.close()
 
