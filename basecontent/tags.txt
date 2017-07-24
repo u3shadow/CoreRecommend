@@ -2,335 +2,337 @@ Indie
 Action
 Adventure
 Casual
-Strategy
 Simulation
+Strategy
 RPG
-Free to Play
 Singleplayer
-Massively Multiplayer
-Sports
-Racing
+Early Access
+Free to Play
 Multiplayer
-Violent
 Great Soundtrack
 Atmospheric
 Puzzle
-Gore
-Horror
 2D
+Horror
 Anime
+VR
+VR Only
+Sports
 Open World
 Sci-fi
 Story Rich
-Co-op
+Massively Multiplayer
+Platformer
 Shooter
+Co-op
 Fantasy
 Difficult
-VR
-FPS
-Platformer
-First-Person
 Female Protagonist
-Funny
-Nudity
 Pixel Graphics
+FPS
+First-Person
+Racing
+Violent
+Funny
+Gore
 Comedy
-Survival
 Sandbox
-Utilities
-Movie
-Design &amp; Illustration
-Classic
-Arcade
-Family Friendly
+Survival
 Retro
-Point &amp; Click
-Third Person
+Arcade
 Turn-Based
+Nudity
+Point & Click
+Classic
+Movie
+Family Friendly
+Space
+Visual Novel
+Psychological Horror
+Third Person
 Zombies
 Exploration
-Online Co-Op
-Controller
-Visual Novel
-Space
-Sexual Content
-Audio Production
 Cute
-Education
-Psychological Horror
-Tactical
-Animation &amp; Modeling
-Local Multiplayer
-Memes
-Local Co-Op
+Design & Illustration
+Online Co-Op
 Rogue-like
 Shoot 'Em Up
-Replay Value
-Action RPG
-Realistic
-Physics
-Survival Horror
-Dark
-Walking Simulator
-RTS
-Stealth
-Mystery
-Turn-Based Strategy
-Action-Adventure
-Building
-RPGMaker
-Crafting
-Fast-Paced
+Memes
+Local Co-Op
+Tactical
+Utilities
+Local Multiplayer
 Hidden Object
-War
-Video Production
-Historical
-Short
-Hack and Slash
+Controller
+Physics
+RPGMaker
+Sexual Content
+RTS
+Turn-Based Strategy
+Mystery
+Survival Horror
+Replay Value
+Realistic
 Puzzle-Platformer
-Mature
-Third-Person Shooter
-PvP
-Web Publishing
+Walking Simulator
+Short
+Dark
+Historical
+Stealth
+Action RPG
+Fast-Paced
+Building
+Education
 Side Scroller
-Fighting
-Moddable
-Post-apocalyptic
-Character Customization
-Illuminati
+Action-Adventure
+Hack and Slash
 Tower Defense
-Top-Down
-Bullet Hell
-Drama
+War
+Crafting
 Management
+Illuminati
 Music
-MMORPG
-Dating Sim
+Bullet Hell
+Post-apocalyptic
+Top-Down
 JRPG
-Colorful
-Competitive
-Relaxing
-Dark Fantasy
-Software Training
-Medieval
-Beat 'em up
-World War II
-4 Player Local
-Futuristic
-Episodic
-Dungeon Crawler
-Procedural Generation
 Rogue-lite
-Choices Matter
-Thriller
-Cyberpunk
-Team-Based
-Robots
-Crime
+Web Publishing
+Third-Person Shooter
+Relaxing
+Fighting
+Mature
+4 Player Local
+Colorful
+Moddable
+PvP
+World War II
+Animation & Modeling
+Dating Sim
+Competitive
+Episodic
+Medieval
 Isometric
-Military
-Party-Based RPG
-Romance
+Procedural Generation
+Dungeon Crawler
+Drama
+Cyberpunk
 Software
-Magic
-Choose Your Own Adventure
-Surreal
-Parkour
-Aliens
-Base Building
-Driving
-Metroidvania
+Beat 'em up
+Party-Based RPG
+Dark Fantasy
 Card Game
-City Builder
-Perma Death
-Turn-Based Combat
-Blood
+Audio Production
+Character Customization
+Robots
+Surreal
+Choices Matter
+Metroidvania
+MMORPG
+Romance
+Futuristic
+Crime
 Board Game
-Steampunk
 Minimalist
-MOBA
-Trains
+Thriller
+Choose Your Own Adventure
 Top-Down Shooter
-Level Editor
-Dark Humor
-3D Platformer
+City Builder
+Aliens
+Trains
+Military
+Magic
 Twin Stick Shooter
-3D Vision
+Turn-Based Combat
+Driving
+Steampunk
+Level Editor
+3D Platformer
 Flight
-Multiple Endings
 Grand Strategy
-Cartoony
 Turn-Based Tactics
-Economy
-Kickstarter
-Stylized
-Game Development
-Photo Editing
-Soundtrack
-Destruction
-Loot
-1990's
+Perma Death
 Detective
+Base-Building
+Team-Based
+Game Development
+Parkour
+Economy
+Soundtrack
+1990's
+Kickstarter
+Match 3
 TrackIR
-Arena Shooter
-Mod
-Cult Classic
+Cartoony
+Video Production
+Stylized
+4X
+Multiple Endings
+Dark Humor
+Software Training
+Remake
 Experimental
+Arena Shooter
+Destruction
+Interactive Fiction
 Dystopian 
 Resource Management
-4X
-1980s
-Remake
-Demons
-PvE
-Documentary
-Cartoon
-2.5D
-Lovecraftian
-Touch-Friendly
-Match 3
-Psychological
-Interactive Fiction
-Space Sim
-Mechs
-Hand-drawn
-Ninja
-Real-Time with Pause
-Dragons
-2D Fighter
-Split Screen
-Assassin
 Rhythm
-Wargame
-Games Workshop
-Dinosaurs
-Abstract
+Touch-Friendly
+Cult Classic
+Mechs
+Lovecraftian
+Hand-drawn
+Space Sim
+Loot
+Documentary
+Real-Time with Pause
+Blood
 Pirates
-Superhero
-GameMaker
-Trading Card Game
-Real-Time
-Linear
-Tutorial
+Cartoon
+MOBA
+2D Fighter
+2.5D
+Abstract
 Noir
-Comic Book
-Strategy RPG
-Tanks
-Tactical RPG
-Voxel
-e-sports
-Hacking
-Alternate History
-Swordplay
-Psychedelic
-Gaming
-Hex Grid
-Hunting
-CRPG
+Tutorial
+Demons
+1980s
 Otome
-God Game
-Supernatural
-Gun Customization
-Naval
-Quick-Time Events
-Western
 Text-Based
-Dark Comedy
-Science
-Cold War
+Wargame
+Dragons
+Psychological
+Tanks
+Real-Time
+GameMaker
+Naval
+3D Vision
+Voxel
+Comic Book
+Trading Card Game
+Superhero
+Hex Grid
+Ninja
+Split Screen
+Tactical RPG
+Western
+Dinosaurs
+Mod
+Photo Editing
+Strategy RPG
+CRPG
+Psychedelic
 Score Attack
-Satire
-Cinematic
-Real Time Tactics
-Character Action Game
-Heist
-Vampire
-Class-Based
-Co-op Campaign
-America
-Clicker
-Mouse only
-Political
-Politics
-Crowdfunded
-Based On A Novel
-Lore-Rich
-Trading
-Football
-Parody 
-Narration
-Villain Protagonist
-Time Travel
-Gothic
-Runner
-World War I
-Warhammer 40K
-FMV
-LEGO
-Soccer
 Pinball
-Silent Protagonist
+Hacking
+Clicker
+Supernatural
+Linear
+FMV
+PvE
+e-sports
+Warhammer 40K
+Science
+Real Time Tactics
+Swordplay
+Time Travel
+Gaming
+Games Workshop
+Alternate History
+Heist
+Narration
+Cold War
+Vampire
+Assassin
+Mouse only
+Football
+Hunting
+Parody 
+God Game
+Based On A Novel
+Runner
+Cinematic
 Underwater
-Sniper
 Grid-Based Movement
-Martial Arts
+Gothic
+Trading
+Political
+Character Action Game
+Politics
+Satire
+World War I
+Crowdfunded
+Quick-Time Events
+Soccer
+Villain Protagonist
+Class-Based
+Dark Comedy
 6DOF
+LEGO
 Bullet Time
-Agriculture
+Martial Arts
 Star Wars
-Conspiracy
+America
 Mythology
-Asynchronous Multiplayer
-Programming
-Batman
-Steam Machine
-Time Manipulation
-Spectacle fighter
-On-Rails Shooter
-Fishing
-Inventory Management
 Rome
-Modern
+Programming
+Lore-Rich
+Agriculture
+Asynchronous Multiplayer
 Time Attack
-Benchmark
-Mining
-Werewolves
+Fishing
+On-Rails Shooter
+Silent Protagonist
+Conspiracy
+Time Manipulation
+Batman
 Sailing
-Offroad
-Hardware
-Horses
-Nonlinear
+Werewolves
+Sniper
 Chess
-Dynamic Narration
-Philisophical
-Mars
-Diplomacy
-Music-Based Procedural Generation
-Capitalism
 Typing
-Gambling
-Basketball
-Mystery Dungeon
-NSFW
-Word Game
-Feature Film
-Lara Croft
-Investigation
+Spectacle fighter
+Offroad
+Co-op Campaign
+Mars
+Music-Based Procedural Generation
+Gun Customization
+Modern
+Horses
+Benchmark
+Dynamic Narration
+Inventory Management
+Hardware
+Capitalism
+Diplomacy
 Golf
-Experience
+Basketball
+Steam Machine
 Sokoban
-Underground
-360 Video
+Philisophical
+Mining
+Lara Croft
+Feature Film
 Lemmings
-Transhumanism
-Bowling
-Wrestling
-Pool
+Word Game
+Gambling
+Nonlinear
+Mystery Dungeon
+360 Video
 Mini Golf
+Experience
+NSFW
+Investigation
+Wrestling
+Underground
+Pool
 Foreign
+Transhumanism
 Spelling
+Bowling
 Intentionally Awkward Controls
 Artificial Intelligence
+Voice Control
 Conversation
 Faith
-Voice Control

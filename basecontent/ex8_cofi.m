@@ -30,10 +30,10 @@ Theta = randn(1,2);
 %初始化参数
 initial_parameters = Theta(:);
 
-options = optimset('GradObj', 'on', 'MaxIter', 100);
+options = optimset('GradObj', 'on', 'MaxIter', 400);
 
-lambda = 5;
-theta = fminunc (@(t)(costFunc(Y,my_ratings, R,...
+lambda = 10;
+[x,output] = fminunc (@(t)(costFunc(Y,my_ratings, R,...
                                 t, lambda)), ...
                 initial_parameters, options);
  my_predictions = Y*theta;
