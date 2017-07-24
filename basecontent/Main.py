@@ -2,12 +2,14 @@ import  os
 import random
 import numpy as n
 import scipy.io as io
-numgame
+numgame = 0
 
 def loadMovieList():
     fid = open("game_id.txt")
     global numgame 
     numgame = len(fid.readlines())
+    fid.close()
+    fid = open("game_id.txt")
     movieList = [[] for i in range(numgame)]
     for i in range(0,numgame):
         line = fid.readline()
