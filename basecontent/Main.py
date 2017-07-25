@@ -2,25 +2,12 @@ import  os
 import random
 import numpy as n
 import scipy.io as io
+from LoadGameFile import loadGameList
+
 numgame = 0
-
-def loadMovieList():
-    fid = open("game_id.txt")
-    global numgame 
-    numgame = len(fid.readlines())
-    fid.close()
-    fid = open("game_id.txt")
-    movieList = [[] for i in range(numgame)]
-    for i in range(0,numgame):
-        line = fid.readline()
-        indx = line.index(" ")
-        idx = line[0:indx]
-        movieName = line[indx:]
-        movieList[i].append(movieName.strip())
-    fid.close()
-    return movieList
-
-movieList = loadMovieList()
+tup = loadGameList()
+movieList = tup[0]
+numgame = tup[1]
 my_ratings = n.zeros((numgame,1))
 ran = range(numgame)
 li = random.sample(ran,10)
