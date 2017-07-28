@@ -25,4 +25,3 @@ sys.setdefaultencoding('utf-8')
 jsons = open("gamejson.txt")
 jsonstr = jsons.read()
 better_print(jsonstr)
-print ''
