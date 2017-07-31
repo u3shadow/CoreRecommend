@@ -1,5 +1,6 @@
 # -*- coding=UTF-8 -*-
 import os
+import json
 import MySQLdb as mysql
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
@@ -61,17 +62,60 @@ def add_entry():
     return redirect(url_for('show_entries'))
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    error = None
+    db = get_db()
+    cursor = db.cursor()
     if request.method == 'POST':
-        if request.form['username'] != app.config['USERNAME']:
-            error = 'Invalid username'
-        elif request.form['password'] != app.config['PASSWORD']:
-            error = 'Invalid password'
+        code = 200
+        cursor.execute('select count(*) from users where name="%s" and psw="%s"'%(request.form['username'],request.form['password']))
+        sum = cursor.fetchall()[0][0]
+        if sum == 0:
+            code = 230
         else:
             session['logged_in'] = True
             flash('You were logged in')
-            return redirect(url_for('show_entries'))
-    return render_template('login.html', error=error)
+            code = 200
+        dic = {'code':code}
+        response = app.response_class(
+            response=json.dumps(dic),
+            status=200,
+            mimetype='application/json')
+        return response
+    else:
+        dic = {'code':231}
+        response = app.response_class(
+            response=json.dumps(dic),
+            status=400,
+            mimetype='application/json')
+        return response
+@app.route('/signup', methods=['POST'])
+def signup():
+    if request.method == 'POST':
+        name1 = request.form['name']
+        psw = request.form['psw']
+        email = request.form['email']
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute('select COUNT(name) from users where name="%s"'%name1)
+        sumname = (cursor.fetchall())[0][0]
+        print sumname
+        cursor.execute('select COUNT(email) from users where email="%s"'%email)
+        sumemail = (cursor.fetchall())[0][0]
+        print sumemail
+        code = 200
+        if sumname > 0:
+            code = 230
+        if sumemail > 0:
+            code = 231
+        if code == 200:
+            cursor.execute('insert into users (name,psw,email) values (%s,%s,%s)',
+                 [name1,psw,email])
+            db.commit()
+        dic = {'code':code}
+        response = app.response_class(
+            response=json.dumps(dic),
+            status=200,
+            mimetype='application/json')
+        return response
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
