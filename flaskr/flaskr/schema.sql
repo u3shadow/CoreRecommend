@@ -8,6 +8,7 @@ CREATE TABLE `entries`(
 );
 CREATE TABLE `users`(
   `id` INT AUTO_INCREMENT,
+  `userid` TEXT NOT NULL,
   `name` TEXT NOT NULL,
   `psw` TEXT NOT NULL,
   `email` TEXT NOT NULL,
