@@ -1,5 +1,6 @@
 # -*- coding=UTF-8 -*-
 import os
+import uuid
 import json
 import MySQLdb as mysql
 from flask import Flask, request, session, g, redirect, url_for, abort, \
@@ -65,16 +66,18 @@ def login():
     db = get_db()
     cursor = db.cursor()
     if request.method == 'POST':
-        code = 200
-        cursor.execute('select count(*) from users where name="%s" and psw="%s"'%(request.form['username'],request.form['password']))
+        cursor.execute('select count(*) from users where name="%s" and psw="%s"'%(request.form['name'],request.form['psw']))
         sum = cursor.fetchall()[0][0]
         if sum == 0:
             code = 230
+            userid = -1;
         else:
+            cursor.execute('select userid from users where name="%s" and psw="%s"'%(request.form['name'],request.form['psw']))
+            userid = cursor.fetchall()[0][0]
             session['logged_in'] = True
             flash('You were logged in')
             code = 200
-        dic = {'code':code}
+        dic = {'code':code,'userid':userid}
         response = app.response_class(
             response=json.dumps(dic),
             status=200,
@@ -107,8 +110,8 @@ def signup():
         if sumemail > 0:
             code = 231
         if code == 200:
-            cursor.execute('insert into users (name,psw,email) values (%s,%s,%s)',
-                 [name1,psw,email])
+            cursor.execute('insert into users (name,psw,email,userid) values (%s,%s,%s,%s)',
+                 [name1,psw,email,uuid.uuid1()])
             db.commit()
         dic = {'code':code}
         response = app.response_class(
