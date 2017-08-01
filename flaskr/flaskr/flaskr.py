@@ -119,6 +119,14 @@ def signup():
             status=200,
             mimetype='application/json')
         return response
+@app.route('/calrate')
+def calrate():
+    if request.method == 'POST':
+        userid = request.form['userid']
+        dic = request.form['ratedic']
+
+
+
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
