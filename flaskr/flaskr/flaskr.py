@@ -5,6 +5,9 @@ import json
 import MySQLdb as mysql
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
+
+from basecontent.Main import calculate
+
 app = Flask(__name__)
 app.config.from_object(__name__)
 
@@ -116,6 +119,17 @@ def signup():
         dic = {'code':code}
         response = app.response_class(
             response=json.dumps(dic),
+            status=200,
+            mimetype='application/json')
+        return response
+@app.route('/calrate',methods = ['POST'])
+def calrate():
+    if request.method =='POST':
+        rate = request.form['rates']
+        userid = request.form['id']
+        dic = eval(rate)
+        calculate(rate)
+        response = app.response_class(
             status=200,
             mimetype='application/json')
         return response

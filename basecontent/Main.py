@@ -20,3 +20,12 @@ io.savemat("my_ratting.mat",ratting)
 
 os.system("octave --no-gui ex8_cofi.m")
 print "learn finish"
+def calculate(rate):
+    tup = loadGameList()
+    numgame = tup[1]
+    my_ratings = n.zeros((numgame,1))
+    for (k,v) in rate.items:
+        my_ratings[int(k)] = int(v)
+    ratting = {'my_ratings':my_ratings}
+    io.savemat("my_ratting.mat",ratting)
+    os.system("octave --no-gui ex8_cofi.m")
