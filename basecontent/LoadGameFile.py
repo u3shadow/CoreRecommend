@@ -1,8 +1,13 @@
+import os
+
+
 def loadGameList():
-    fid = open("game_id.txt")
+
+    path = os.path.split(os.path.realpath(__file__))[0]+"/"
+    fid = open(path+"game_id.txt")
     numgame = len(fid.readlines())
     fid.close()
-    fid = open("game_id.txt")
+    fid = open(path+"game_id.txt")
     movieList = [[] for i in range(numgame)]
     for i in range(0,numgame):
         line = fid.readline()

@@ -3,8 +3,8 @@ import random
 import numpy as n
 import scipy.io as io
 from LoadGameFile import loadGameList
-
-numgame = 0
+#test
+'''numgame = 0
 tup = loadGameList()
 movieList = tup[0]
 numgame = tup[1]
@@ -19,12 +19,15 @@ ratting = {'my_ratings':my_ratings}
 io.savemat("my_ratting.mat",ratting)
 
 os.system("octave --no-gui ex8_cofi.m")
-print "learn finish"
+print "learn finish"'''
+
 def calculate(rate):
+    print os.path.abspath(".")
     tup = loadGameList()
     numgame = tup[1]
     my_ratings = n.zeros((numgame,1))
-    for (k,v) in rate.items:
+    print numgame
+    for (k,v) in rate.items():
         my_ratings[int(k)] = int(v)
     ratting = {'my_ratings':my_ratings}
     io.savemat("my_ratting.mat",ratting)

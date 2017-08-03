@@ -5,9 +5,10 @@ import json
 import MySQLdb as mysql
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
-
 from basecontent.Main import calculate
-
+from Test.Test import h
+import sys
+sys.path.append('../')
 app = Flask(__name__)
 app.config.from_object(__name__)
 
@@ -128,7 +129,7 @@ def calrate():
         rate = request.form['rates']
         userid = request.form['id']
         dic = eval(rate)
-        calculate(rate)
+        calculate(dic)
         response = app.response_class(
             status=200,
             mimetype='application/json')
