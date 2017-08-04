@@ -6,7 +6,7 @@ import MySQLdb as mysql
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 from basecontent.Main import calculate
-from Test.Test import h
+
 import sys
 sys.path.append('../')
 app = Flask(__name__)

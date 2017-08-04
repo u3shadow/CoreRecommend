@@ -22,7 +22,9 @@ os.system("octave --no-gui ex8_cofi.m")
 print "learn finish"'''
 
 def calculate(rate):
-    print os.path.abspath(".")
+
+    path = os.path.split(os.path.realpath(__file__))[0]+"/"
+    os.chdir(path)
     tup = loadGameList()
     numgame = tup[1]
     my_ratings = n.zeros((numgame,1))
