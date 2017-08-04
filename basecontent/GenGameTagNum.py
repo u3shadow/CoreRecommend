@@ -1,13 +1,14 @@
 import numpy as n
 import scipy.io as sci
+from dbscript.DBmethods import connect_db
 ftagnum = open("game_tag_s.txt")
-fgame = open("game_id.txt")
 ftag = open("tags.txt")
-numgame = len(fgame.readlines())
+db = connect_db()
+cur = db.cursor()
+cur.execute('select count(*) from games')
+numgame = cur.fetchall()[0][0]
 numtag = len(ftag.readlines())
-fgame.close()
 ftag.close()
-fgame = open("game_id.txt")
 ftag = open("tags.txt")
 Y = n.zeros((numgame,numtag))
 for i in range(0,numgame):
@@ -22,5 +23,4 @@ for i in range(0,numgame):
 dic = {"Y":Y}
 sci.savemat('ex8_movies.mat',dic)
 ftagnum.close()
-fgame.close()
 ftag.close()

@@ -7,7 +7,7 @@ function movieList = loadMovieList()
 
 %% Read the fixed movieulary list
 fid = fopen('game_id.txt');
-
+db = mysql_init()
 % Store all movies in cell array movie{}
 n = 14329;  % Total number of movies
 

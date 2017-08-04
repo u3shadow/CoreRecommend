@@ -1,18 +1,15 @@
-import os
-
+from dbscript.DBmethods import connect_db
 
 def loadGameList():
 
-    path = os.path.split(os.path.realpath(__file__))[0]+"/"
-    fid = open(path+"game_id.txt")
-    numgame = len(fid.readlines())
-    fid.close()
-    fid = open(path+"game_id.txt")
-    movieList = [[] for i in range(numgame)]
-    for i in range(0,numgame):
-        line = fid.readline()
-        indx = line.index(" ")
-        movieName = line[indx:]
-        movieList[i].append(movieName.strip())
-    fid.close()
-    return (movieList,numgame)
+    db = connect_db()
+    cur = db.cursor()
+    cur.execute('select count(*) from games')
+    numgame = (cur.fetchall())[0][0]
+    print numgame
+    gameList = [[] for i in range(numgame+1)]
+    for i in range(1,numgame+1):
+        cur.execute('select name from games where id = "%s"'%i)
+        gameName = cur.fetchall()[0][0]
+        gameList[i].append(gameName.strip())
+    return (gameList,numgame)

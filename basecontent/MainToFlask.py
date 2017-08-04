@@ -1,13 +1,7 @@
 import  os
-import random
 import numpy as n
 import scipy.io as io
-import MySQLdb as mysql
 from LoadGameFile import loadGameList
-def connect_db():
-    """Connects to the specific database."""
-    rv = mysql.connect(host='localhost',user='root',passwd='u3shadow',db='test')
-    return rv
 
 def calculate(rate):
 
