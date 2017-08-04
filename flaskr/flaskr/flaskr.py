@@ -5,7 +5,7 @@ import json
 import MySQLdb as mysql
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
-from basecontent.Main import calculate
+from basecontent.MainToFlask import calculate
 
 import sys
 sys.path.append('../')
