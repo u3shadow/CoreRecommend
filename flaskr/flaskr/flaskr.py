@@ -1,5 +1,6 @@
 # -*- coding=UTF-8 -*-
 import os
+import random
 import uuid
 import json
 import psycopg2 as psy
@@ -131,6 +132,27 @@ def calrate():
         dic = eval(rate)
         calculate(dic)
         response = app.response_class(
+            status=200,
+            mimetype='application/json')
+        return response
+@app.route('/getgames',methods = ['POST'])
+def getgames():
+    if request.method =='POST':
+        db = connect_db()
+        userid = request.form['id']
+        cur = db.cursor()
+        cur.execute("select count(*) from games;")
+        numgame = cur.fetchall()[0][0]
+        ran = range(numgame)
+        li = random.sample(ran, 10)
+        idList = []
+        for i in range(1, 11):
+            cur.execute('select steamid from games where id=\'%s\';'%i)
+            gameid = cur.fetchall()[0][0]
+            print gameid
+            idList.append(gameid)
+        response = app.response_class(
+            response = json.dumps(idList),
             status=200,
             mimetype='application/json')
         return response
