@@ -28,3 +28,4 @@ sys.setdefaultencoding('utf-8')
 jsons = open("gamejson.txt")
 jsonstr = jsons.read()
 init_data(jsonstr)
+print "init finish"

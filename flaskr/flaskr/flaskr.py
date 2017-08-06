@@ -2,7 +2,7 @@
 import os
 import uuid
 import json
-import MySQLdb as mysql
+import psycopg2 as psy
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 from basecontent.MainToFlask import calculate
@@ -21,7 +21,7 @@ app.config.update(dict(
 app.config.from_envvar('FLASKR_SETTINGS',silent=True)
 def connect_db():
     """Connects to the specific database."""
-    rv = mysql.connect(host='localhost',user='root',passwd='u3shadow',db='test')
+    rv = psy.connect(database="redb", user="u3", password=" ")
     return rv
 def get_db():
     """Opens a new database connection if there is none yet for the
@@ -50,7 +50,7 @@ def initdb_command():
 @app.route('/')
 def show_entries():
     db = get_db()
-    cursor = db.cursor(cursorclass=mysql.cursors.DictCursor)
+    cursor = db.cursor(cursorclass=psy.cursors.DictCursor)
     cursor.execute('select title, text from entries order by id desc')
     entries = cursor.fetchall()
     return render_template('show_entries.html', entries=entries)
@@ -70,13 +70,13 @@ def login():
     db = get_db()
     cursor = db.cursor()
     if request.method == 'POST':
-        cursor.execute('select count(*) from users where name="%s" and psw="%s"'%(request.form['name'],request.form['psw']))
+        cursor.execute('select count(*) from users where name=\'%s\' and psw=\'%s\''%(request.form['name'],request.form['psw']))
         sum = cursor.fetchall()[0][0]
         if sum == 0:
             code = 230
             userid = -1;
         else:
-            cursor.execute('select userid from users where name="%s" and psw="%s"'%(request.form['name'],request.form['psw']))
+            cursor.execute('select userid from users where name=\'%s\' and psw=\'%s\''%(request.form['name'],request.form['psw']))
             userid = cursor.fetchall()[0][0]
             session['logged_in'] = True
             flash('You were logged in')
@@ -102,11 +102,11 @@ def signup():
         email = request.form['email']
         db = get_db()
         cursor = db.cursor()
-        cursor.execute('select COUNT(name) from users where name="%s"'%name1)
+        cursor.execute('select COUNT(name) from users where name=\'%s\''%name1)
         sumname = (cursor.fetchall())[0][0]
-        print sumname
-        cursor.execute('select COUNT(email) from users where email="%s"'%email)
+        cursor.execute('select COUNT(email) from users where email=\'%s\''%email)
         sumemail = (cursor.fetchall())[0][0]
+        print sumname
         print sumemail
         code = 200
         if sumname > 0:
@@ -115,7 +115,7 @@ def signup():
             code = 231
         if code == 200:
             cursor.execute('insert into users (name,psw,email,userid) values (%s,%s,%s,%s)',
-                 [name1,psw,email,uuid.uuid1()])
+                 [name1,psw,email,str(uuid.uuid4())])
             db.commit()
         dic = {'code':code}
         response = app.response_class(

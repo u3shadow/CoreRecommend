@@ -1,4 +1,9 @@
-from MainToFlask import connect_db
+from DBmethods import connect_db
 db = connect_db()
 schema = open('schema.sql')
-db.cursor().execute(schema.read())
+cur = db.cursor()
+cur.execute(schema.read())
+db.commit()
+db.close()
+print "create finish"
+

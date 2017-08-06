@@ -1,5 +1,5 @@
-import MySQLdb as mysql
+import psycopg2 as psy
 def connect_db():
     """Connects to the specific database."""
-    rv = mysql.connect(host='localhost',user='root',passwd='u3shadow',db='test')
+    rv = psy.connect(database="redb", user="u3", password=" ")
     return rv
