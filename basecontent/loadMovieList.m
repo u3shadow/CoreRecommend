@@ -6,20 +6,16 @@ function movieList = loadMovieList()
 
 
 %% Read the fixed movieulary list
-fid = fopen('game_id.txt');
-db = mysql_init()
+pkg load database;
+conn = pq_connect (setdbopts ("dbname", "redb"));
+data = pq_exec_params (conn, "select * from games;").data;
+nums = pq_exec_params (conn, "select count(*) from games;").data;
+nums = cell2mat(nums);
 % Store all movies in cell array movie{}
-n = 14329;  % Total number of movies
-
+n = nums;  % Total number of movies
 movieList = cell(n, 1);
 for i = 1:n
-    % Read line
-    line = fgets(fid);
-    % Word Index (can ignore since it will be = i)
-    [idx, movieName] = strtok(line, ' ');
-    % Actual Word
-    movieList{i} = strtrim(movieName);
+    movieList{i} = cell2mat(data(i,2));
 end
-fclose(fid);
-
+pkg unload database;
 end
