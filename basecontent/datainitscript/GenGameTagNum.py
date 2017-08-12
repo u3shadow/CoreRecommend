@@ -1,5 +1,10 @@
 import numpy as n
 import scipy.io as sci
+import sys
+import os
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
 from dbscript.DBmethods import connect_db
 ftagnum = open("game_tag_s.txt")
 ftag = open("tags.txt")
