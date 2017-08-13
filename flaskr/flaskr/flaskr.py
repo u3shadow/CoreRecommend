@@ -4,6 +4,7 @@ import sys
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
+sys.path.append('/home/u3/CoreRecommend')
 import random
 import uuid
 import json
@@ -54,11 +55,7 @@ def initdb_command():
 
 @app.route('/')
 def show_entries():
-    db = get_db()
-    cursor = db.cursor(cursorclass=psy.cursors.DictCursor)
-    cursor.execute('select title, text from entries order by id desc')
-    entries = cursor.fetchall()
-    return render_template('show_entries.html', entries=entries)
+    return "<h1 style='color:blue'>Hello There!</h1>"
 
 @app.route('/add', methods=['POST'])
 def add_entry():
