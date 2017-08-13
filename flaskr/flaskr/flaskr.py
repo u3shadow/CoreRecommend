@@ -147,7 +147,7 @@ def getgames():
         ran = range(numgame)
         li = random.sample(ran, 10)
         idList = []
-        for i in range(1, 11):
+        for i in li:
             cur.execute('select steamid from games where id=\'%s\';'%i)
             gameid = cur.fetchall()[0][0]
             print gameid
