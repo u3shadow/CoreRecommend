@@ -127,13 +127,24 @@ def signup():
         return response
 @app.route('/calrate',methods = ['POST'])
 def calrate():
-    if request.method =='POST':
-        rate = request.form['rates']
-        userid = request.form['id']
-        dic = eval(rate)
-        calculate(dic)
-        response = app.response_class(
+    db = connect_db()
+    userid = request.form['id']
+    cur = db.cursor()
+    cur.execute('select count(*) from users where userid = \'%s\';'%userid)
+    numuser = cur.fetchall()[0][0]
+    if numuser == 1:
+        if request.method =='POST':
+            rate = request.form['rates']
+            userid = request.form['id']
+            dic = eval(rate)
+            calculate(dic)
+            response = app.response_class(
             status=200,
+            mimetype='application/json')
+            return response
+    else:
+        response = app.response_class(
+            status=404,
             mimetype='application/json')
         return response
 @app.route('/getgames',methods = ['POST'])
