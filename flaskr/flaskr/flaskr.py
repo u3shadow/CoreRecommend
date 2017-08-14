@@ -142,21 +142,28 @@ def getgames():
         db = connect_db()
         userid = request.form['id']
         cur = db.cursor()
-        cur.execute("select count(*) from games;")
-        numgame = cur.fetchall()[0][0]
-        ran = range(numgame)
-        li = random.sample(ran, 10)
-        idList = []
-        for i in li:
-            cur.execute('select steamid from games where id=\'%s\';'%i)
-            gameid = cur.fetchall()[0][0]
-            print gameid
-            idList.append(gameid)
-        response = app.response_class(
+        cur.execute('select count(*) from users where userid = \'%s\';'%userid)
+        numuser = cur.fetchall()[0][0]
+        if numuser == 1:
+            cur.execute("select count(*) from games;")
+            numgame = cur.fetchall()[0][0]
+            ran = range(numgame)
+            li = random.sample(ran, 10)
+            idList = []
+            for i in li:
+                cur.execute('select steamid from games where id=\'%s\';'%i)
+                gameid = cur.fetchall()[0][0]
+                idList.append(gameid)
+            response = app.response_class(
             response = json.dumps(idList),
             status=200,
             mimetype='application/json')
-        return response
+            return response
+        else:
+            response = app.response_class(
+            status=404,
+            mimetype='application/json')
+            return response
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
