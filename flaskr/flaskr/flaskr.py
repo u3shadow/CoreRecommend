@@ -33,14 +33,14 @@ def get_db():
     """Opens a new database connection if there is none yet for the
     current application context.
     """
-    if not hasattr(g, 'MySQLdb'):
-        g.MySQLdb = connect_db()
-    return g.MySQLdb
+    if not hasattr(g, 'PSQL'):
+        g.PSQL = connect_db()
+    return g.PSQL
 @app.teardown_appcontext
 def close_db(error):
     """Closes the database again at the end of the request."""
-    if hasattr(g, 'MySQLdb'):
-        g.MySQLdb.close()
+    if hasattr(g, 'PSQL'):
+        g.PSQL.close()
 def init_db():
     db = get_db()
     with app.open_resource('schema.sql', mode='r') as f:
@@ -57,16 +57,6 @@ def initdb_command():
 def show_entries():
     return "<h1 style='color:blue'>Hello There!</h1>"
 
-@app.route('/add', methods=['POST'])
-def add_entry():
-    if not session.get('logged_in'):
-        abort(401)
-    db = get_db()
-    db.cursor().execute('insert into entries (title, text) values (%s, %s)',
-                 [request.form['title'], request.form['text']])
-    db.commit()
-    flash('New entry was successfully posted')
-    return redirect(url_for('show_entries'))
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     db = get_db()
