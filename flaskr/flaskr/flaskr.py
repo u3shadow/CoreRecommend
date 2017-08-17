@@ -150,13 +150,18 @@ def getgames():
             numgame = cur.fetchall()[0][0]
             ran = range(numgame)
             li = random.sample(ran, 10)
+            sIdList = []
             idList = []
             for i in li:
-                cur.execute('select steamid from games where id=\'%s\';'%i)
-                gameid = cur.fetchall()[0][0]
-                idList.append(gameid)
+                cur.execute('select id,steamid from games where id=\'%s\';'%i)
+                ids = cur.fetchall()[0]
+                id = ids[0]
+                idList.append(id)
+                gameid = ids[1]
+                sIdList.append(gameid)
+            dic = {'sid':sIdList,'id':idList}
             response = app.response_class(
-            response = json.dumps(idList),
+            response = json.dumps(dic),
             status=200,
             mimetype='application/json')
             return response
