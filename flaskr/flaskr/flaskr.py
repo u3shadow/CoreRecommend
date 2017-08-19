@@ -75,9 +75,9 @@ def login():
             code = 200
         dic = {'code':code,'userid':userid}
         response = app.response_class(
+            headers='Content-Type: application/json;charset=utf-8',
             response=json.dumps(dic),
             status=200,
-            content_type='application/json;charset=utf-8',
             mimetype='application/json')
         return response
     else:
