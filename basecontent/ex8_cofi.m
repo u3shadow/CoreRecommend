@@ -44,8 +44,12 @@ movieList = loadMovieList();
 %排序结果
 [r, ix] = sort(my_predictions, 'descend');
 fprintf('\nTop recommendations for you:\n');
+result = cell(10,1);
 for i=1:10
     j = ix(i);
     fprintf('Predicting rating %.1f for  %s\n', my_predictions(j), ...
             movieList{j});
+    result{i} = j;
 end
+save result.txt result
+

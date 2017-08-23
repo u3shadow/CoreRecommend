@@ -5,6 +5,7 @@ curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
 sys.path.append('/home/u3/CoreRecommend')
+sys.path.append('/home/u3-linux/PycharmProjects/CoreRecommend')
 import random
 import uuid
 import json
@@ -128,8 +129,10 @@ def calrate():
             rate = request.form['rates']
             userid = request.form['id']
             dic = eval(rate)
-            calculate(dic)
+            reLi = calculate(dic)
+            dic = {'sid':reLi}
             response = app.response_class(
+            response = json.dumps(dic),
             status=200,
             mimetype='application/json')
             return response

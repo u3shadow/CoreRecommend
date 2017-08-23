@@ -7,7 +7,7 @@ function movieList = loadMovieList()
 
 %% Read the fixed movieulary list
 pkg load database;
-conn = pq_connect (setdbopts ("dbname", "redb"));
+conn = pq_connect (setdbopts ("dbname", "redb","password"," ","user","u3"));
 data = pq_exec_params (conn, "select * from games;").data;
 nums = pq_exec_params (conn, "select count(*) from games;").data;
 nums = cell2mat(nums);
