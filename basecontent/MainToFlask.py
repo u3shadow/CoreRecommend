@@ -34,6 +34,8 @@ def calculate(rate):
             sid = (cur.fetchall())[0][0]
             reLi.append(sid)
     db.close()
+    os.remove("result.txt")
+    os.remove("my_ratting.mat")
     return reLi
 
 
