@@ -8,6 +8,7 @@ sys.path.append('/home/u3/CoreRecommend')
 sys.path.append('/home/u3-linux/PycharmProjects/CoreRecommend')
 import random
 import uuid
+from logging.handlers import WatchedFileHandler
 import json
 import psycopg2 as psy
 from flask import Flask, request, session, g, redirect, url_for, abort, \
@@ -119,6 +120,9 @@ def signup():
         return response
 @app.route('/calrate',methods = ['POST'])
 def calrate():
+    handler = WatchedFileHandler("/var/log/your_flask_app.log")
+    app.logger.addHandler(handler)
+    app.logger.setLevel(logging.INFO)
     db = connect_db()
     userid = request.form['id']
     cur = db.cursor()
