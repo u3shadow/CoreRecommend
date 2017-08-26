@@ -4,7 +4,7 @@ import sys
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
-sys.path.append('/app/CoreRecommend')
+sys.path.append('/home/u3/app/CoreRecommend')
 sys.path.append('/home/u3-linux/PycharmProjects/CoreRecommend')
 import random
 import uuid
