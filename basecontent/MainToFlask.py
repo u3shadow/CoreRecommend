@@ -23,7 +23,7 @@ def calculate(rate):
     ratting = {'my_ratings':my_ratings}
     io.savemat("my_ratting.mat",ratting)
     os.system("octave --no-gui ex8_cofi.m")
-    result = open("result.txt",'wb')
+    result = open("result.txt",'rwb')
     reLi =[]
     db = connect_db()
     cur = db.cursor()
