@@ -91,8 +91,6 @@ def signup():
         sumname = (cursor.fetchall())[0][0]
         cursor.execute('select COUNT(email) from users where email=\'%s\''%email)
         sumemail = (cursor.fetchall())[0][0]
-        print sumname
-        print sumemail
         code = 200
         if sumname > 0:
             code = 230
