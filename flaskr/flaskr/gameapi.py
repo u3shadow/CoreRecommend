@@ -16,57 +16,60 @@ game_blue_print = Blueprint('game_blue_print', __name__,
 @game_blue_print.route('/getgames',methods = ['POST'])
 def getgames():
     if request.method =='POST':
-        db = connect_db()
         userid = request.form['id']
-        cur = db.cursor()
-        cur.execute('select count(*) from users where userid = \'%s\';'%userid)
-        numuser = cur.fetchall()[0][0]
+        numuser = exSQLFind('select count(*) from users where userid = \'%s\';'%userid)
         if numuser == 1:
-            cur.execute("select count(*) from games;")
-            numgame = cur.fetchall()[0][0]
+            numgame = exSQLFind("select count(*) from games;")
             ran = range(numgame)
             li = random.sample(ran, 10)
             sIdList = []
             idList = []
+            db = get_db()
+            cursor = db.cursor()
             for i in li:
-                cur.execute('select id,steamid from games where id=\'%s\';'%i)
-                ids = cur.fetchall()[0]
+                cursor.execute('select id,steamid from games where id=\'%s\';'%i)
+                ids = cursor.fetchall()[0]
                 id = ids[0]
                 idList.append(id)
                 gameid = ids[1]
                 sIdList.append(gameid)
             dic = {'sid':sIdList,'id':idList}
-            response = app.response_class(
-            response = json.dumps(dic),
-            status=200,
-            mimetype='application/json')
+            response = getResponse(dic,200)
             return response
         else:
-            response = app.response_class(
-            status=404,
-            mimetype='application/json')
+            response = getResponse('',404)
             return response
 @game_blue_print.route('/calrate',methods = ['POST'])
 def calrate():
-    db = connect_db()
     userid = request.form['id']
-    cur = db.cursor()
-    cur.execute('select count(*) from users where userid = \'%s\';'%userid)
-    numuser = cur.fetchall()[0][0]
+    numuser = exSQLFind('select count(*) from users where userid = \'%s\';'%userid)
     if numuser == 1:
         if request.method =='POST':
             rate = request.form['rates']
-            userid = request.form['id']
             dic = eval(rate)
             reLi = calculate(dic)
             dic = {'sid':reLi}
-            response = app.response_class(
-            response = json.dumps(dic),
-            status=200,
-            mimetype='application/json')
+            response = getResponse(dic,200)
             return response
     else:
-        response = app.response_class(
-            status=404,
-            mimetype='application/json')
+        response = getResponse("",404)
         return response
+
+def exSQLFind(str):
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute(str)
+    return cursor.fetchall()[0][0]
+
+def getResponse(dic,status):
+    if dic != '':
+        response = app.response_class(
+            response=json.dumps(dic),
+            status=status,
+            mimetype='application/json')
+    else:
+        response = app.response_class(
+            status=status,
+            mimetype='application/json')
+    response.headers["Content-Type"]='application/json;charset=utf-8'
+    return response
