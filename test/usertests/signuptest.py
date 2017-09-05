@@ -34,6 +34,6 @@ class FlaskrTestCase(unittest.TestCase):
         rv = self.app.post('/signup', data=dict(
         name="nousedname",
         psw="1",
-        email="11@gmail.com"
+        email="1"
     ), follow_redirects=True)
         assert '231' in rv.data
